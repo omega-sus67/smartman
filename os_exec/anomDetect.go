@@ -10,7 +10,7 @@ type anomalyDetector struct{
 	History []float64
 	Threshold float64
 }
-
+// self explanatory
 func addData(window int, threshold float64) *anomalyDetector{
 	return &anomalyDetector{
 		Windowsize: window,
@@ -18,7 +18,7 @@ func addData(window int, threshold float64) *anomalyDetector{
 		Threshold: threshold,
 	}
 }
-
+// updates the history and detects the anomaly, sends the error
 func (ad *anomalyDetector) addDataAndChcek(latency float64) (bool, string){
 	ad.History = append(ad.History, latency)
 
@@ -47,7 +47,7 @@ func (ad *anomalyDetector) addDataAndChcek(latency float64) (bool, string){
 
 	return false, "Normal"
 }
-
+// helper functions
 func (ad *anomalyDetector) mean () float64{
 	sum := 0.0
 
