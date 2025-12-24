@@ -20,7 +20,7 @@ func addData(window int, threshold float64) *anomalyDetector{
 }
 
 func (ad *anomalyDetector) addDataAndChcek(latency float64) (bool, string){
-	ad.History = append(ad.History, value)
+	ad.History = append(ad.History, latency)
 
 	if len(ad.History) < ad.Windowsize{
 		return false, "not enough data"
